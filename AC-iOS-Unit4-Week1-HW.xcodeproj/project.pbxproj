@@ -20,6 +20,7 @@
 		816A8B261FE5FEC200AAC17A /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816A8B251FE5FEC200AAC17A /* NetworkHelper.swift */; };
 		816A8B281FE602EC00AAC17A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816A8B271FE602EC00AAC17A /* Category.swift */; };
 		816A8B2B1FE6051E00AAC17A /* ImageAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816A8B2A1FE6051E00AAC17A /* ImageAPIClient.swift */; };
+		816A8B2D1FE61AF100AAC17A /* BestSeller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816A8B2C1FE61AF100AAC17A /* BestSeller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		816A8B251FE5FEC200AAC17A /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		816A8B271FE602EC00AAC17A /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		816A8B2A1FE6051E00AAC17A /* ImageAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIClient.swift; sourceTree = "<group>"; };
+		816A8B2C1FE61AF100AAC17A /* BestSeller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSeller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		816A8B291FE6030500AAC17A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				816A8B2C1FE61AF100AAC17A /* BestSeller.swift */,
 				816A8B251FE5FEC200AAC17A /* NetworkHelper.swift */,
 				816A8B271FE602EC00AAC17A /* Category.swift */,
 				816A8B2A1FE6051E00AAC17A /* ImageAPIClient.swift */,
@@ -194,6 +197,7 @@
 				816A8B211FE5FC3600AAC17A /* BestSellerCollectionViewCell.swift in Sources */,
 				816A8B1D1FE5FB1300AAC17A /* SettingsViewController.swift in Sources */,
 				816A8B1F1FE5FB5B00AAC17A /* BookDetailViewController.swift in Sources */,
+				816A8B2D1FE61AF100AAC17A /* BestSeller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
