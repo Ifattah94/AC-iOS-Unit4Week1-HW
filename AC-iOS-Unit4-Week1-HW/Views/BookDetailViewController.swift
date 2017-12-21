@@ -20,12 +20,22 @@ class BookDetailViewController: UIViewController {
    
     @IBOutlet weak var summaryTextView: UITextView!
  
-    
+    var bookImage: UIImage?
+    var myBestSeller: BestSeller?
+    var myGoogleBook: GoogleBook?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
 
      
+    }
+    func setup() {
+        titleLabel.text = myBestSeller?.bookDetails[0].title ?? ""
+        subtitleLabel.text = myGoogleBook?.searchInfo.textSnippet ?? ""
+        summaryTextView.text = myGoogleBook?.volumeInfo.description ?? ""
+        bookImageView.image = bookImage
+
     }
 
 

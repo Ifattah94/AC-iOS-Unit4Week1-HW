@@ -10,7 +10,7 @@ import UIKit
 
 class BestSellerCollectionViewCell: UICollectionViewCell {
     
-    
+    var myGoogleBook: GoogleBook?
     @IBOutlet weak var bestSellerImageView: UIImageView!
     
     @IBOutlet weak var weeksLabel: UILabel!

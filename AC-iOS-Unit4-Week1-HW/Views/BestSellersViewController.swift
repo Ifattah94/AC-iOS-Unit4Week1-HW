@@ -52,9 +52,11 @@ class BestSellersViewController: UIViewController {
         let printErrors = {(error: Error) in
             print(error)
         }
+        //loading data from online to populate Picker View
         CategoryAPIClient.manager.getCategories(completionHandler: setCategories, errorHandler: printErrors)
 
     }
+    //get Best Seller Info from NY TImes API
     func loadBestSellersFromOnline() {
         let setBestSellers = {(onlineBestSellers: [BestSeller]) in
             self.bestSellers = onlineBestSellers
@@ -64,6 +66,22 @@ class BestSellersViewController: UIViewController {
         }
         BestSellerAPIClient.manager.getBestSellers(with: category, completionHandler: setBestSellers, errorHandler: printErrors)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationDVC = segue.destination as? BookDetailViewController {
+            if let cell = sender as? BestSellerCollectionViewCell {
+                if let selectedIndexPath = self.bestSellerCollectionView.indexPathsForSelectedItems?[0] {
+                    let row = selectedIndexPath.row
+                    let selectedBook = bestSellers[row]
+                    destinationDVC.myBestSeller = selectedBook
+                    destinationDVC.myGoogleBook = cell.myGoogleBook
+                    destinationDVC.bookImage = cell.bestSellerImageView.image
+                }
+            }
+        }
+    }
+    
+    
 
 }
 extension BestSellersViewController: UICollectionViewDataSource {
@@ -74,12 +92,31 @@ extension BestSellersViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = bestSellerCollectionView.dequeueReusableCell(withReuseIdentifier: "bestSellerCell", for: indexPath) as! BestSellerCollectionViewCell
         let bestSeller = bestSellers[indexPath.row]
-        cell.weeksLabel.text = bestSeller.bookDetails[0].title
+        cell.weeksLabel.text = "\(bestSeller.weeksOnList) weeks on the best seller list"
         cell.summaryTextView.text = bestSeller.bookDetails[0].description
+        configureBookImages(for: bestSeller, cell: cell)
         return cell
+    }
+    //function used to get book images using the google books API
+    func configureBookImages(for bestSeller: BestSeller, cell: BestSellerCollectionViewCell) {
+        //in the closure below I am calling the ImageAPICLient that gets images based on the passed in urlString. This closure is then used as the completion for the GoogleAPICLient
+        let setGoogleBook = {(onlineBook: [GoogleBook]?) in
+            if let onlineBook = onlineBook {
+            cell.myGoogleBook = onlineBook[0]
+            let thumbnailURL = onlineBook[0].volumeInfo.imageLinks.thumbnail
+                ImageAPIClient.manager.loadImage(from: thumbnailURL, completionHandler: {cell.bestSellerImageView.image = $0}, errorHandler: {print($0)})
+        }
+        }
+        let printErrors = {(error: Error) in
+            print(error)
+        }
+        GoogleBooksAPIClient.manager.getBookInfo(bestSeller.bookDetails[0].ISBN13, completionHandler: setGoogleBook, errorHandler: printErrors)
+        
     }
     
 }
+
+
 
 extension BestSellersViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

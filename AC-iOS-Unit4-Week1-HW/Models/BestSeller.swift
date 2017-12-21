@@ -22,12 +22,18 @@ struct BestSeller: Codable {
 struct BookInfo: Codable {
     let title: String
     let description: String
-    let primaryISBN13: String
+    let author: String
+    let ISBN13: String
+    let ISBN10: String
     
     enum CodingKeys: String, CodingKey {
         case title
         case description
-        case primaryISBN13 = "primary_isbn13"
+        case author
+        case ISBN13 = "primary_isbn13"
+        case ISBN10 = "primary_isbn10"
+        
+        
     }
 }
 struct BestSellerAPIClient {
