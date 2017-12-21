@@ -19,6 +19,11 @@ class BestSellersViewController: UIViewController {
     var categories = [Category]() {
         didSet {
             self.categoryPickerView.reloadAllComponents()
+            if let settings = UserDefaultsHelper.manager.getSetting() {
+                categoryPickerView.selectRow(settings.pickerNum, inComponent: 0, animated: true)
+                //callAPICLient after userdefaults are set to load data on startup
+                BestSellerAPIClient.manager.getBestSellers(with: categories[settings.pickerNum].encodedListName, completionHandler: {self.bestSellers = $0}, errorHandler: {print($0)})
+            }
         }
     }
     
@@ -30,6 +35,7 @@ class BestSellersViewController: UIViewController {
     var bestSellers = [BestSeller]() {
         didSet {
             self.bestSellerCollectionView.reloadData()
+            
         }
     }
     

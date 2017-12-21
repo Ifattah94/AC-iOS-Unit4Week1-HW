@@ -85,6 +85,7 @@ static let kPathName = "favorites.plist"
         guard let indexFound = index else {return nil}
         return favorites[indexFound]
     }
+    //create an index to figure out where to remove a certain Favorite
     func removeFavorite(from index: Int, favorite: Favorite) -> Bool {
         favorites.remove(at: index)
         let url = PersistenceManager.manager.dataFilePath(withPathName: favorite.isbn)

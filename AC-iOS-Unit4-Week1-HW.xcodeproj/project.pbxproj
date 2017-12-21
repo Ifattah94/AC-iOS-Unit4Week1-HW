@@ -24,6 +24,7 @@
 		81F675191FEB32F40036CE83 /* GoogleBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F675181FEB32F40036CE83 /* GoogleBooks.swift */; };
 		81F6751B1FEB5D5C0036CE83 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6751A1FEB5D5C0036CE83 /* Favorite.swift */; };
 		81F6751D1FEB5EDF0036CE83 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6751C1FEB5EDF0036CE83 /* PersistenceManager.swift */; };
+		81F6B6D21FEC234A00DE17AD /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6B6D11FEC234A00DE17AD /* UserDefaultsHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		81F675181FEB32F40036CE83 /* GoogleBooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleBooks.swift; sourceTree = "<group>"; };
 		81F6751A1FEB5D5C0036CE83 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		81F6751C1FEB5EDF0036CE83 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		81F6B6D11FEC234A00DE17AD /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,9 +82,9 @@
 			children = (
 				816A8B291FE6030500AAC17A /* Models */,
 				816A8B241FE5FD3200AAC17A /* Views */,
-				54F137E01FE302CD00EA22AA /* Main.storyboard */,
 				81F6751E1FEB673D0036CE83 /* Persistence */,
 				54F137E81FE302CE00EA22AA /* Info.plist */,
+				54F137E01FE302CD00EA22AA /* Main.storyboard */,
 				816A8B191FE5E91E00AAC17A /* supporting */,
 			);
 			path = "AC-iOS-Unit4-Week1-HW";
@@ -126,6 +128,7 @@
 		81F6751E1FEB673D0036CE83 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				81F6B6D11FEC234A00DE17AD /* UserDefaultsHelper.swift */,
 				81F6751A1FEB5D5C0036CE83 /* Favorite.swift */,
 				81F6751C1FEB5EDF0036CE83 /* PersistenceManager.swift */,
 			);
@@ -204,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81F6B6D21FEC234A00DE17AD /* UserDefaultsHelper.swift in Sources */,
 				816A8B261FE5FEC200AAC17A /* NetworkHelper.swift in Sources */,
 				81F6751D1FEB5EDF0036CE83 /* PersistenceManager.swift in Sources */,
 				816A8B231FE5FCC300AAC17A /* FavoritesCollectionViewCell.swift in Sources */,

@@ -46,7 +46,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dCJ-5s-FUj">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dCJ-5s-FUj">
                                                     <rect key="frame" x="48" y="8.5" width="144" height="144"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="dCJ-5s-FUj" secondAttribute="height" multiplier="9:9" id="4tC-9p-Rdm"/>
@@ -117,7 +117,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xck-DG-efZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xck-DG-efZ">
                                 <rect key="frame" x="80" y="60.5" width="160" height="163"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xck-DG-efZ" secondAttribute="height" multiplier="5.3:5.4" id="MaL-Sp-77I"/>
@@ -211,7 +211,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="208" height="191"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5nm-Dg-cQW">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5nm-Dg-cQW">
                                                     <rect key="frame" x="8" y="8" width="192" height="175"/>
                                                 </imageView>
                                             </subviews>
