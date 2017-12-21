@@ -75,6 +75,9 @@ class BookDetailViewController: UIViewController {
         bookImageView.image = bookImage
         } else {
             bookImageView.image = #imageLiteral(resourceName: "noImage")
+            titleLabel.text = ""
+            summaryTextView.text = ""
+            subtitleLabel.text = ""
         }
     }
     
