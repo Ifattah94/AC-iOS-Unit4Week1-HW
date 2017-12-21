@@ -23,6 +23,7 @@ struct VolumeInfoWrapper: Codable {
     let title: String
     let authors: [String]
     let description: String?
+    let subtitle: String?
     let imageLinks: ImageWrapper
 }
 

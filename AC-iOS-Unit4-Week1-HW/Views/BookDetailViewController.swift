@@ -28,14 +28,65 @@ class BookDetailViewController: UIViewController {
         super.viewDidLoad()
         setup()
 
-     
-    }
-    func setup() {
-        titleLabel.text = myBestSeller?.bookDetails[0].title ?? ""
-        subtitleLabel.text = myGoogleBook?.searchInfo.textSnippet ?? ""
-        summaryTextView.text = myGoogleBook?.volumeInfo.description ?? ""
-        bookImageView.image = bookImage
 
+    }
+    
+    
+    @IBAction func favoritesButtonPressed(_ sender: UIButton) {
+        guard let myBestSeller = myBestSeller else {return}
+        
+        if PersistenceManager.manager.isBookInFavorites(bestSeller: myBestSeller) {
+        showAlert2()
+        removeFavorite()
+        PersistenceManager.manager.saveFavorites()
+        
+        } else {
+            if let myGoogleBook = myGoogleBook, let bookImage = bookImage {
+            showAlert()
+            PersistenceManager.manager.addFavoriteBook(bestSeller: myBestSeller, googleBook: myGoogleBook, image: bookImage)
+                PersistenceManager.manager.saveFavorites()
+            }
+        }
+        
+    }
+    
+    
+    
+    
+    private func showAlert() {
+        let alertController = UIAlertController(title: "Success", message: "Added to Favorites!", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    private func showAlert2() {
+        let alertController = UIAlertController(title: "Success", message: "Removed from Favorites!", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    func setup() {
+        if let myBestSeller = myBestSeller, let myGoogleBook = myGoogleBook {
+        titleLabel.text = myBestSeller.bookDetails[0].title
+        subtitleLabel.text = myGoogleBook.volumeInfo.subtitle ?? ""
+        summaryTextView.text = myGoogleBook.volumeInfo.description ?? ""
+        bookImageView.image = bookImage
+        } else {
+            bookImageView.image = #imageLiteral(resourceName: "noImage")
+        }
+    }
+    
+    private func removeFavorite() {
+        if let myBestSeller = myBestSeller{
+            guard let favoriteToBeRemoved = PersistenceManager.manager.getFavoriteWithISBN(isbn: myBestSeller.bookDetails[0].ISBN13) else {return}
+            let index = PersistenceManager.manager.getFavorites().index{$0.isbn == myBestSeller.bookDetails[0].ISBN13}
+            if let index = index {
+                let _ = PersistenceManager.manager.removeFavorite(from: index, favorite: favoriteToBeRemoved)
+            }
+            
+        }
     }
 
 
